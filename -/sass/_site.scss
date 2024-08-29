@@ -1,0 +1,3518 @@
+/*-------------------------------------------
+	Fonts
+-------------------------------------------*/
+
+
+@font-face {
+	font-family: 'Jenna Sue';
+		src: url('-/fonts/jenna-sue.eot');
+		src: url('-/fonts/jenna-sue.eot?#iefix') format('embedded-opentype'),
+			url('-/fonts/jenna-sue.woff') format('woff'),
+			url('-/fonts/jenna-sue.ttf') format('truetype'),
+			url('-/fonts/jenna-sue.svg#JennaSueRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+/*-------------------------------------------
+	Layout
+-------------------------------------------*/
+
+section,
+.inner-wrap,
+.container {
+
+	@include container();
+
+	// @include susy-grid-background();
+
+}
+
+section {
+
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	@include breakpoint(min-width, 600px) {
+		margin-top: 36px;
+		margin-bottom: 36px;
+		}
+
+	.single-projects &,
+	.page-template-template-team-php &,
+	&.team,
+	&.individual { margin-top: 0; }
+
+}
+
+// Temporary fixes
+
+.page-template-template-projects-php section { margin-top: 0; }
+
+	.row { @include group(); }
+
+	.main {
+	
+		padding: 0 30px;
+
+		.row {
+
+			@include breakpoint(min-width, 600px) {
+		
+				.page-template-template-services-php & {
+	
+					border-top: 1px solid $secondary-color;
+					background: url(-/media/horizontal-rule.png) 0 60px repeat-x, url(-/media/vertical-rule.png) 40.5% 0 repeat-y;
+	
+				}
+	
+				.page-template-template-about-php & {
+				
+					border-top: 1px solid $secondary-color;
+					background: url(-/media/horizontal-rule.png) 0 60px repeat-x, url(-/media/vertical-rule.png) 33% 0 repeat-y, url(-/media/vertical-rule.png) 67% 0 repeat-y;
+					
+				}
+
+				.page-template-template-contact-php &,
+				.error404 & {
+				
+					border-top: 1px solid $secondary-color;
+					background: url(-/media/horizontal-rule.png) 0 60px repeat-x;
+					
+				}
+
+			}
+
+			@include breakpoint(min-width, 720px) {
+			
+				.single-projects & {
+				
+					&.first { background: url(-/media/vertical-rule.png) 68% 0 repeat-y; }
+					
+				}
+						
+			}
+
+		}
+
+	}
+
+		// Main Content
+
+		.primary {
+
+			margin-bottom: 30px;
+
+			@include breakpoint(min-width, 600px) {
+
+				@include span-columns(8,12);
+				margin-bottom: 0;
+
+				.single-projects & { @include reset-columns; }
+
+				// Alternate (for Services)
+
+				.page-template-template-services-php & {
+				
+					@include span-columns(7 omega,12);
+
+					.section-header {
+						margin-bottom: 1px; // Account for missing border-bottom.
+						border: none;
+						}
+
+				}
+
+				// Alternate (for Contact)
+
+				.page-template-template-contact-php &,
+				.error404 & {
+				
+					@include span-columns(8 omega,12);
+				
+					.section-header {
+						margin-bottom: 1px; // Account for missing border-bottom.
+						border: none;
+						}
+					
+				}
+
+				// Single Project
+				
+				.single-projects & {
+				
+					.section-header {
+
+						@include breakpoint(min-width, 600px) {
+							margin-bottom: 21px;
+							@include group();
+							}
+							
+					}
+				
+				}
+
+			}
+
+			p {}
+			
+			ul {
+				
+				padding: 0 0 0 16px;
+				list-style-type: disc;
+				
+				li {}
+				
+			}
+			
+			ol {}
+
+			dl {}
+			
+				dt {
+					color: $primary-color;
+					font-weight: 600;
+					}
+				
+				dd {
+
+					margin-bottom: 14px;
+					padding-bottom: 14px;
+					border-bottom: 1px dashed $secondary-color;
+
+					&:last-child {
+						margin: 0;
+						padding: 0;
+						border: none;
+						}
+
+				}
+
+		}
+
+		// Sidebar
+
+		.sidebar {
+
+			@include breakpoint(min-width, 600px) {
+
+				@include span-columns(4 omega,12);
+
+				// Alternate (for Services)
+
+				.page-template-template-services-php & {
+				
+					@include span-columns(5,12);
+
+					.section-header {
+						margin-bottom: 1px; // Account for missing border-bottom.
+						border: none;
+						}
+					
+				}
+
+				// Alternate (for Contact)
+
+				.page-template-template-contact-php &,
+				.error404 & {
+				
+					@include span-columns(4,12);
+
+					.section-header {
+						margin-bottom: 1px; // Account for missing border-bottom.
+						border: none;
+						}
+					
+				}
+
+				// Alternate (for Individual Project)
+
+				.single-projects & {
+				
+					.section-header {
+						margin-bottom: 21px; // Account for missing border-bottom.
+						border: none;
+						}
+					
+				}
+
+			}
+
+			.single-projects & {
+			
+				.section-header { margin-bottom: 21px; }
+			
+			}
+
+		}
+
+		// Project Brief (on Single Project page)
+		
+		.brief {
+		
+			@include group();
+
+			.overview {
+			
+				@include breakpoint(min-width, 720px) {
+			
+					@include span-columns(8,12);
+				
+				}
+				
+			}
+
+			.details {
+
+
+				@include breakpoint(min-width, 720px) {
+				
+					@include span-columns(4 omega, 12);
+					
+				}
+
+				.inner {
+				
+					@include breakpoint(min-width, 720px) { padding-left: 20px; }	
+					
+				}
+
+					h5 {
+
+						@include font-size(14);
+						line-height: (18/14) + em;
+						font-weight: 400;
+						color: $primary-color;
+						text-transform: uppercase;
+
+						@include breakpoint(max-width, 719px) {
+							margin-top: 25px;
+							padding-top: 25px;
+							border-top: 1px solid $secondary-color;
+							}
+
+					}
+					
+					ul {
+						padding-left: 16px;
+						list-style-type: disc;
+						}
+					
+						li {
+							margin-top: 10px;
+							@include font-size(14);
+							line-height: (20/14) + em;
+							}
+
+			}
+			
+		}
+
+// About
+
+.page-template-template-about-php {
+
+	.main {
+	
+		.row {
+
+			div {
+			
+				margin-bottom: 30px;
+			
+				&:last-of-type { margin-bottom: 0; }
+				
+			}
+
+			@include breakpoint(min-width, 600px) {
+		
+				div {
+				
+					@include span-columns(4,12);
+					@include nth-omega(3n);
+					padding-bottom: 90px;
+	
+					.section-header {
+	
+						margin-bottom: 21px; // Account for missing border-bottom.
+						border: none;
+	
+					}
+	
+					&:first-of-type {
+					
+						.section-header { padding-right: 12px; }
+					
+						p { padding: 0 12px 0 0; }
+						
+					}
+	
+					&:nth-child(1n+2) {
+					
+						.section-header {
+							padding-left: 12px;
+							padding-right: 12px;
+							}
+	
+						p { padding: 0 12px; }
+	
+					}
+					
+				}
+
+			}
+
+		}
+		
+	}
+	
+}
+
+// Individual Project
+
+.page-template-template-single-projects-php {
+
+	header {
+	
+		@include group();
+	
+		h2 { @include span-columns(8,12); }
+
+	}
+
+}
+
+
+
+/*-------------------------------------------
+	Base
+-------------------------------------------*/
+
+
+html,
+body { height: 100%; }
+
+html {
+	font-size: 62.5%;
+	-webkit-overflow-scrolling: touch;
+	// -webkit-tap-highlight-color: lighten($basecolor, 75%);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	}
+
+body {
+	@include font-size(15);
+	line-height: $baselineheight;
+	font-weight: $basefontweight;
+	font-family: $basefont;
+	color: $secondary-color;
+	background: $white;
+	}
+
+#page {
+
+	@include breakpoint(min-width, 870px) {
+		clear: both;
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+		margin-bottom: -50px;
+		}
+
+}
+
+	#page-footer {
+	
+		@include breakpoint(min-width, 870px) {
+			height: 50px;
+			}
+		
+	}
+
+select, input, textarea {
+	@include font-size(13);
+	line-height: $baselineheight;
+	font-family: $basefont;
+	color: $secondary-color;
+	}
+
+a {
+
+	color: $primary-color;
+	text-decoration: none;
+
+	// &:link { -webkit-tap-highlight-color: transparent; }
+
+	&:hover {}
+
+}
+
+::-moz-selection {
+	color: rgb(255, 255, 255);
+	background: rgb(252, 215, 0);
+	text-shadow: none;
+	}
+
+::selection {
+	color: rgb(255, 255, 255);
+	background: rgb(252, 215, 0);
+	text-shadow: none;
+	}
+
+ins {
+	color: rgb(0, 0, 0);
+	background-color: rgb(252, 215, 0);
+	text-decoration: none;
+	}
+
+mark {
+	color: rgb(0, 0, 0);
+	background-color: rgb(252, 215, 0);
+	font-style: italic;
+	font-weight: bold;
+	}
+
+
+/*-------------------------------------------
+	Header
+-------------------------------------------*/
+
+
+header[role="banner"] {
+
+	.inner-wrap {
+		
+		@include breakpoint(max-width, 749px) { padding: 0; }
+		
+	}
+
+	.row {
+
+		position: relative;
+		z-index: 999;
+
+		@include breakpoint(min-width, 750px) {
+			height: 100px;
+			padding: 30px 0;
+			}
+
+		@include breakpoint(min-width, 1040px) {
+			height: 108px;
+			padding: 0;
+			}
+			
+	}
+
+}
+
+	/* Logo */
+
+	#site-title {
+
+		width: 128px;
+		margin: 0 auto 30px auto;
+		@include hide-text();
+
+		a {
+
+			display: block;
+			height: 120px;
+			background: url(-/media/logo-vertical.png) no-repeat;
+
+			@include retina {
+				background-image: url(-/media/logo-vertical@2x.png);
+				@include background-size(128px 120px);
+				}
+
+		}
+
+		@include breakpoint(max-width, 749px) {
+
+			position: relative;
+			width: 100%;
+			height: 180px;
+			margin-bottom: 36px;
+			@include box-shadow(0 2px 5px rgba($black, .15));
+
+			a {
+
+				position: absolute;
+				left: 30px;
+				top: 30px;
+				width: 128px;
+				height: 120px;
+				background: url(-/media/logo-vertical.png);
+				z-index: 5;
+
+				@include retina {
+					background-image: url(-/media/logo-vertical@2x.png);
+					@include background-size(128px 120px);
+					}
+
+			}
+
+		}
+
+		@include breakpoint(min-width, 750px) {
+		
+			width: 288px;
+
+			a {
+
+				height: 36px;
+				background: url(-/media/logo.png) no-repeat;
+
+				@include retina {
+					background-image: url(-/media/logo@2x.png);
+					@include background-size(288px 36px);
+					}
+
+				.ie7 &,
+				.ie8 & { background: url(-/media/logo.png) no-repeat; }
+
+			 }
+		
+		}
+
+		@include breakpoint(min-width, 1040px) {
+
+			position: absolute;
+			left: 0;
+			top: 36px;
+			margin: 0;
+			z-index: 5;
+		
+		}
+
+	}
+
+	/* Primary Navigation */
+
+	nav {
+
+		@include breakpoint(max-width, 749px) {
+			position: relative;
+			top: -36px;
+			}
+
+		@include breakpoint(min-width, 1040px) {
+			position: absolute;
+			right: 0;
+			bottom: 39px;
+			z-index: 5;
+			}
+
+	}
+
+		.toggle {
+
+			position: absolute;
+			top: -69px;
+			right: 30px;
+			@include hide-text();
+			width: 36px;
+			height: 36px;
+			background: $primary-color url(-/media/plus-minus.png);
+			cursor: pointer;
+			z-index: 5;
+
+			@include retina() {
+
+				@include background-size(72px 54px);
+				background-position: 0 -18px;
+
+			}
+
+			@include breakpoint(min-width, 750px) { display: none; }	
+			
+			&.active {
+			
+				background-position: -36px 0;
+			
+				@include retina() { background-position: -36px -18px; }
+				
+			}
+			
+		}
+
+		.nav {
+			
+			@include group();
+
+			@include breakpoint(max-width, 749px) {
+
+				top: -9999px;
+				display: none;
+				background: lighten($secondary-color, 29%) url(-/media/nav-vertical-rule.png) center top repeat-y;
+				@include box-shadow(0 2px 4px rgba($black, .12) inset, 0 -2px 5px rgba($black, .12) inset);
+				z-index: 1;
+
+				&.active {
+					display: block;
+					top: 120px;
+					}
+
+			}
+			
+			&.active {}
+			
+		}
+
+			.menu {
+	
+				position: relative;
+				text-align: center;
+				@include group();
+	
+				li {
+
+					float: left;
+					width: 50%;
+					@include font-size(14);
+					text-align: center;
+					text-transform: uppercase;
+
+					@include breakpoint(min-width, 750px) {
+
+						float: none;
+						display: inline-block;
+						width: auto;
+						@include font-size(12);
+						line-height: (18/12) + em;
+						text-align: left;
+						margin-right: -4px;
+						text-transform: none;
+
+						&:last-child { margin-right: 0; }
+
+					}
+
+					a {
+	
+						display: block;
+						height: 27px;
+						padding: 9px 0 0 0;
+						color: $secondary-color;
+
+						@include breakpoint(max-width, 749px) {
+							border-bottom: 1px solid rgba($secondary-color, .10);
+							}
+
+						@include breakpoint(min-width, 750px) {
+							height: auto;
+							padding: 0 0 7px 0;
+							border-bottom: 3px solid transparent;
+							}
+
+						span {
+
+							@include breakpoint(min-width, 750px) {
+								display: block;
+								height: 15px;
+								padding: 0 17px;
+								border-right: 1px solid $secondary-color;
+								}
+
+						}
+
+						&:hover {
+						
+							@include breakpoint(min-width, 750px) {
+						
+								border-bottom: 3px solid $primary-color;
+
+							}
+
+						}
+	
+					}
+
+					&.current-menu-item,
+					&.current-page-ancestor,
+					.single-team &#menu-item-56,
+					.page-template-template-office-php &#menu-item-56,
+					.single-projects &#menu-item-52 {
+					
+						a {
+	
+							@include breakpoint(max-width, 749px) {
+
+								color: $white;
+								background: $primary-color;
+
+							}
+
+							@include breakpoint(min-width, 750px) {
+							
+								border-bottom: 3px solid $primary-color;
+							
+							}
+						
+						}
+
+					}
+
+					&:last-child {
+	
+						a {
+	
+							span { border: none !important; }
+	
+						}
+	
+					}
+	
+					&#indicator {
+
+						display: none;
+						position: absolute;
+						bottom: -3px;
+						height: 3px;
+						padding: 0;
+						z-index : 1;
+						background: $primary-color;
+
+						@include breakpoint(min-width, 750px) { display: block; }
+						
+					}
+	
+				}
+	
+			}
+
+
+/*-------------------------------------------
+	Slideshow
+-------------------------------------------*/
+
+
+#slideshow {
+
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+
+	@include breakpoint(min-width, 1024px) {
+
+		background: lighten($secondary-color, 29%);
+
+	}
+
+	.single-projects & {
+		margin-top: 36px;
+		background: none;
+		}
+
+	.single-projects & .slideshow { padding: 0; }
+
+	.flexslider {
+
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+
+		.flex-viewport { height: auto !important; }
+
+		&.project-slides { margin-bottom: 30px; }
+
+		&.captions {
+		
+			@include breakpoint(min-width, 600px) {
+				@include span-columns(5 omega,12);
+				@include pad(3,4);
+				}
+		
+		}
+
+		.single-projects & {
+
+			@include breakpoint(max-width, 600px) { margin-bottom: 30px; }
+
+		}
+
+		@include breakpoint(min-width, 1024px) {
+
+			.home & { @include box-shadow(-11px 0 0 lighten($secondary-color, 24%), 11px 0 0 lighten($secondary-color, 24%)); }
+
+		}
+
+		// Slides
+
+		.slides {
+		
+			.home & {	@include group(); }
+			
+		}
+
+		.slides > li {
+			display: none;
+			-webkit-backface-visibility: hidden;
+			}
+
+			a { display: block; }
+
+			.slides img {
+				width: 100%;
+				display: block;
+				}
+
+			.slides p {
+
+				padding-bottom: 45px;
+
+				@include breakpoint(min-width, 600px) { padding-bottom: 25px; }
+
+			}
+
+		// Paging
+
+		.flex-control-paging {
+
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+			width: 100%;
+			text-align: center;
+			@include group();
+
+			@include breakpoint(min-width, 600px) {
+				width: auto;
+				text-align: left;
+				right: 10px;
+				z-index: 5;
+				}
+
+			li {
+
+				display: inline;
+				margin: 0 8px;
+				@include hide-text();
+
+				@include breakpoint(min-width, 600px) {
+					display: inline-block;
+					margin: 0 0 0 8px;
+					}
+
+				a {
+
+					display: inline-block;
+					width: 12px;
+					height: 12px;
+					background: $white;
+					@include rounded(50%);
+					cursor: pointer;
+
+					@include breakpoint(min-width, 600px) {
+						display: block;
+						width: 8px;
+						height: 8px;
+						}
+
+					&.flex-active,
+					&:hover { background: $primary-color; }
+
+				}
+
+			}
+
+		}
+
+		// Prev/Next
+
+		.flex-direction-nav {
+
+			display: none;
+
+			@include breakpoint(min-width, 600px) { display: block; }
+
+			li {
+
+				position: absolute;
+				left: -75px;
+				top: 50%;
+				width: 112px;
+				margin-top: -17px;
+				@include font-size(11);
+				line-height: (13/11) + em;
+				text-transform: uppercase;
+				text-align: center;
+				@include transition(left 0.15s ease-in-out);
+				z-index: 5;
+
+				a {
+
+					display: block;
+					width: 75px;
+					height: 24px;
+					padding-top: 13px;
+					padding-right: 37px;
+					color: $secondary-color;
+					background: lighten($secondary-color, 29%);
+
+					span {
+						position: absolute;
+						right: 0;
+						top: 0;
+						display: block;
+						width: 37px;
+						height: 37px;
+						color: $white;
+						@include hide-text();
+						background: $primary-color url(-/media/prev-next-arrows.png);
+						}
+
+					&:hover {}
+
+				}
+
+				&:last-child {
+
+					left: auto;
+					@include transition(right 0.15s ease-in-out);
+					right: -75px;
+
+					a {
+
+						padding-left: 37px;
+						padding-right: 0;
+
+						span {
+							right: auto;
+							left: 0;
+							background-position: -37px 0;
+							}
+
+					}
+
+				}
+
+				&:hover {
+
+					left: 0;
+
+					&:last-child {
+						left: auto;
+						right: 0;
+						}
+
+				}
+
+			}
+
+		}
+
+		// Need to organize
+
+		html[xmlns] & .slides { display: block; }
+
+		* html & .slides { height: 1%; }
+
+		// Fallback when JavaScript is not in use.
+
+		.no-js & .slides > li:first-child { display: block; }
+
+	}
+
+	.captions-wrapper { position: relative; }
+
+}
+
+
+/*-------------------------------------------
+	Banner
+-------------------------------------------*/
+
+
+#banner {
+
+	margin-top: 0;
+	margin-bottom: 0;
+
+	@include breakpoint(max-width, 600px) { padding: 0 30px; }
+
+}
+
+	.banner {
+
+		width: 100%;
+		color: $white;
+		@include group;
+
+		.banner-inner {
+			position: relative;
+			}
+
+			.message {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 5;
+				}
+
+				.message-wrap {
+					display: table;
+					width: 100%;
+					height: 100%;
+					}
+
+					p {
+
+						display: table-cell;
+						@include font-size(24);
+						line-height: (36/24) + em;
+						font-weight: 600;
+						vertical-align: middle;
+						text-align: center;
+
+						@include breakpoint(max-width, 479px) {
+							@include font-size(20);
+							line-height: (24/20) + em;
+							}
+
+					}
+		
+						span {
+
+							display: inline-block;
+							padding: 25px 30px;
+							background: rgba($primary-color, .85);
+							text-align: left;
+							@include box-sizing();
+
+							.ie7 &,
+							.ie8 & { background: $primary-color; }
+
+							@include breakpoint(max-width, 479px) {
+								padding: 10px 15px;
+								width: 83.00781%;
+								}
+
+							@include breakpoint(min-width, 480px) { width: 66.01563%; }
+
+							@include breakpoint(min-width, 600px) { width: 49.02344%; }
+
+						}
+	
+			.photo {}
+
+				img { display: block; }
+
+			// p {
+	
+				// @include font-size(24);
+				// line-height: (36/24) + em;
+	
+				// span { background: $primary-color; }
+	
+			// }
+
+		// @include breakpoint(max-width, 600px) {
+
+			// div { padding: 20px; }
+		
+		// }
+
+		// @include breakpoint(min-width, 600px) {
+
+			// min-height: 240px;
+
+			// div {
+				// @include span-columns(6,12);
+				// @include push(3);
+				// }
+
+			// p {
+
+				// display: table;
+				// height: 240px;
+				// @include font-size(36);
+				// line-height: (52/36) + em;
+			
+				// span {
+					// display: table-cell;
+					// vertical-align: middle;
+					// }
+
+			// }
+
+		// }
+
+		// @include breakpoint(min-width, 800px) {
+		
+			// min-height: 340px;
+		
+			// p {
+
+				// margin-top: 40px;
+				// margin-bottom: 40px;
+				// height: 260px;
+			
+				// span { padding: 30px; }	
+				
+			// }	
+			
+		// }
+
+	}
+
+
+/*-------------------------------------------
+	Testimonials
+-------------------------------------------*/
+
+
+.testimonials {
+
+	padding: 0 30px;
+
+	.testimonials-container {
+
+		position: relative;
+		background: lighten($secondary-color, 29%);
+		z-index: 1;
+
+		// Slides
+
+		.slides { @include group(); }
+
+		.slides > blockquote {
+			display: none;
+			-webkit-backface-visibility: hidden;
+			}
+
+			blockquote {
+
+				div {
+
+					padding: 20px 20px 50px 20px;
+					@include group();
+
+					@include breakpoint(min-width, 600px) {
+						display: table;
+						margin: 20px 0;
+						padding: 0 47px;
+						}
+					
+				}
+
+				p {
+
+					margin-bottom: 10px;
+
+					@include breakpoint(min-width, 600px) {
+						display: table-cell;
+						width: 70%;
+						margin: 0;
+						border-right: 1px solid $secondary-color;
+						}
+
+					span {
+
+						@include breakpoint(min-width, 600px) {
+							display: block;
+							padding-right: 16px;
+							}
+					
+					}
+
+				}
+
+				footer {
+
+					@include breakpoint(min-width, 600px) {
+						display: table-cell;
+						width: 30%;
+						}
+
+				}
+
+					cite {
+
+						display: block;
+						font-style: normal;
+
+						@include breakpoint(min-width, 600px) { padding: 0 16px; }
+
+						strong {
+							display: block;
+							@include font-size(15);
+							line-height: (16/15) + em;
+							font-weight: 600;
+							color: $primary-color;
+							}
+
+						.src {
+							@include font-size(13);
+							line-height: (15/13) + em;
+							text-transform: uppercase;
+							}
+
+					}
+
+			}
+
+		// Prev/Next
+
+		.flex-direction-nav {
+
+			li {
+
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				@include hide-text();
+				width: 50%;
+				z-index: 5;
+
+				@include breakpoint(min-width, 600px) {
+					top: 0;
+					width: auto;
+					}
+
+				a {
+
+					display: block;
+					height: 30px;
+					background: lighten($secondary-color, 24%) url(-/media/previous.png) left center no-repeat;
+					@include transition(background .5s);
+
+					@include retina() {
+						background-image: url(-/media/previous@2x.png);
+						@include background-size(37px 37px);
+						}
+
+					@include breakpoint(min-width, 600px) {
+						width: 30px;
+						height: 100%;
+						background-position: center center;
+						}
+
+					&:hover { background-color: $primary-color; }
+
+				}
+
+				&:last-child,
+				&.flex-next {
+
+					left: auto;
+					right: 0;
+
+					a {
+					
+						background-image: url(-/media/next.png);
+						background-position: right center;
+
+						@include retina() { background-image: url(-/media/next@2x.png); }
+
+						@include breakpoint(min-width, 600px) { background-position: center center; }
+					
+					}
+
+				}
+
+				&:hover {
+
+					left: 0;
+
+					&:last-child {
+						left: auto;
+						right: 0;
+						}
+
+				}
+
+			}
+
+			.ie8 & .flex-prev {}
+			
+			.ie8 & .flex-next {
+				left: auto !important;
+				right: 0 !important;
+				}
+
+		}
+
+		// Need to organize
+
+		html[xmlns] & .slides { display: block; }
+
+		* html & .slides { height: 1%; }
+
+		// Fallback when JavaScript is not in use.
+
+		.no-js & .slides > li:first-child { display: block; }
+
+	}
+
+}
+
+
+/*-------------------------------------------
+	Content
+-------------------------------------------*/
+
+
+.content {}
+
+	// Main Content
+
+	.primary {
+
+		h1 {}
+
+		h2 {
+			margin-bottom: 8px;
+			@include font-size(22);
+			line-height: (25/22) + em;
+			font-weight: 400;
+			color: $primary-color;
+			}
+
+		h3 {}
+
+		h4 {}
+
+		h5 {}
+
+		h6 {}
+
+		p { margin-bottom: 8px; }
+
+		strong {}
+
+		em {}
+
+		ol {
+
+			li {}
+
+		}
+
+		ul {
+
+			li {}
+
+		}
+
+	}
+
+	// Sidebar
+
+	.sidebar {}
+
+		/* CTA */
+
+		.cta {
+
+			padding: 20px;
+			background: lighten($secondary-color, 29%);
+
+			h3 {
+				margin-bottom: 4px;
+				@include font-size(16);
+				line-height: (18/16) + em;
+				font-weight: normal;
+				color: $primary-color;
+				}
+
+			h4 {
+				margin-bottom: 14px;
+				@include font-size(13);
+				line-height: (16/13) + em;
+				font-weight: 400;
+				text-transform: uppercase;
+				}
+
+			p {
+
+				@include font-size(14);
+				line-height: (20/14) + em;
+
+				&:first-of-type { margin-bottom: 16px; }
+
+				a {
+					display: inline-block;
+					height: 22px;
+					padding: 6px 12px 0 12px;
+					@include font-size(12);
+					line-height: (16/12) + em;
+					text-transform: uppercase;
+					color: $white;
+					background: $primary-color;
+					}
+
+			}
+
+		}
+
+		// Subnav (appears on Services page)
+
+		.subnav {
+			
+			li {
+
+				@include font-size(14);
+				line-height: (21/14) + em;
+
+				@include breakpoint(min-width, 600px) { margin-right: 25px; }
+				
+				a {
+
+					display: block;
+					padding: 13px 0 12px 0;
+					color: $secondary-color;
+					border-bottom: 1px solid $secondary-color;
+				
+					&:hover { color: $primary-color; }
+					
+				}
+
+				// Active page
+				
+				&.current-menu-item {
+				
+					a { color: $primary-color; }
+					
+				}
+
+			}
+			
+		}
+
+		// Locations
+
+		.location {
+
+			padding: 16px 0;
+			@include font-size(14);
+			line-height: (20/14) + em;
+			border-bottom: 1px solid $secondary-color;
+
+			@include breakpoint(min-width, 600px) { margin-right: 25px; }
+
+			.n {
+				margin-bottom: 7px;
+				@include font-size(15);
+				font-weight: 600;
+				line-height: (16/15) + em;
+				text-transform: uppercase;
+				}
+			
+			.adr {}
+			
+				.street-address {}
+				
+				.locality {}
+				
+				.region {}
+				
+				.postal-code {}
+
+			.tel {}
+			
+			.url {
+
+				font-weight: 600;
+
+				span {
+
+					position: relative;
+					left: 10px;
+					top: 1px;
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					@include hide-text();
+					background: url(-/media/plus.png);
+
+					.ie9 & { top: 3px; }
+
+					@include retina() {
+						@include background-size(16px 24px);
+						background-position: 0 -8px;
+						}
+
+				}
+
+				&:hover {}
+					
+			}
+		
+		}
+
+				@include mozilla {
+				
+					.location .url span { top: 3px; }
+
+				}
+
+	.individual {
+
+		header {
+
+			margin-bottom: 36px;
+			border-top: 1px solid $secondary-color;
+			border-bottom: 1px solid $secondary-color;
+			@include group();
+
+			h2 {
+				display: inline-block;
+				height: 45px;
+				padding: 15px 0 0 0;
+				@include font-size(18);
+				line-height: (32/18) + em;
+				font-weight: 400;
+				color: $primary-color;
+				}
+			
+			p {
+				float: right;
+				margin: 17px 0 0 0;
+				@include font-size(11);
+				line-height: (13/11) + em;
+				text-transform: uppercase;
+				}
+
+				a {
+
+					display: block;
+					height: 19px;
+					padding: 7px 0 0 0;
+					color: $secondary-color;
+
+					span {
+					
+						float: left;
+
+						&.arrow {
+
+							position: relative;
+							top: -7px;
+							display: block;
+							width: 26px;
+							height: 26px;
+							margin-right: 10px;
+							color: $white;
+							background: $primary-color url(-/media/back.png);
+							@include hide-text();
+
+							@include breakpoint(max-width, 599px) { margin: 0; }
+
+							@include retina() {
+							
+								background-size: 26px 39px;
+								background-position: 0 -13px;
+	
+							}
+
+						}
+
+						&:last-child {
+						
+							@include breakpoint(max-width, 599px) {
+							
+								display: none;
+							
+							}
+						
+						}
+	
+					}
+
+					&:hover {}
+					
+				}
+
+		}
+
+		.row {}
+		
+			.col {
+
+				@include breakpoint(min-width, 600px) {
+
+					@include span-columns(6,12);
+					@include nth-omega(2);
+
+				}
+
+				// Temporarily override inline W / H on <img>
+
+				img {
+				
+					width: auto !important;
+					height: auto !important;
+					
+					@include breakpoint(max-width, 599px) { margin-bottom: 30px; }
+					
+				}
+
+				h2 {
+					@include font-size(18);
+					line-height: (19/18) + em;
+					color: $primary-color;
+					font-weight: 400;
+				}
+			
+				h3 {
+					margin-top: 10px;
+					@include font-size(13);
+					line-height: (17/13) + em;
+					font-weight: 600;
+					text-transform: uppercase;
+					}
+				
+				p { margin-bottom: 8px; }
+
+			}
+
+			ul {
+				margin-top: 36px;
+				@include group();
+				border-top: 1px solid $secondary-color;
+				border-bottom: 1px solid $secondary-color;
+				}
+	
+				li {
+
+					border-bottom: 1px solid $secondary-color;
+
+					&:last-of-type { border: none; }
+
+					@include breakpoint(min-width, 860px) {
+				
+						@include span-columns(4,12);
+						@include nth-omega(3);
+						border: none;
+
+					}
+
+					a {
+
+						display: block;
+						height: 35px;
+						padding-top: 15px;
+
+						&:hover {}
+						
+					}
+					
+				}
+
+	}
+
+	.case-study {
+		
+		.single-projects & {
+
+			@include breakpoint(max-width, 600px) { margin-bottom: 30px; }
+
+			@include breakpoint(min-width, 600px) {
+				@include span-columns(7 omega, 12);
+				}
+
+			@include breakpoint(min-width, 865px) {
+
+				margin-top: 0;
+				background: $white;
+				@include span-columns(4,12);
+				@include omega;
+				z-index: 999;
+			
+			}
+
+			p {
+				@include font-size(13);
+				line-height: (16/13) + em;
+				text-transform: uppercase;
+				text-align: center;
+				}
+			
+				a {
+
+					display: block;
+					padding: 20px 80px 20px 20px;
+					color: $white;
+					background: rgba($secondary-color, .10) url(-/media/document-icon.png) right bottom no-repeat;
+
+					@include retina {
+						background-size: 65px 60px;
+						background-image: url(-/media/document-icon@2x.png);
+						}
+
+					&:hover {
+
+						span { background: rgba($primary-color, .85); }
+						
+					}
+					
+				}
+				
+					span {
+						display: block;
+						height: 22px;
+						padding: 7px 0 0 0;
+						background: $primary-color;
+						}
+
+		}
+		
+	}
+
+	.back-to {
+
+		.single-projects & {
+
+			@include breakpoint(min-width, 600px) {
+				@include span-columns(5, 12);
+			}
+
+			@include breakpoint(min-width, 865px) {
+				margin-top: 0;
+				@include span-columns(3,12);
+				z-index: 999;
+				}
+
+			p {
+				@include font-size(13);
+				line-height: (16/13) + em;
+				text-transform: uppercase;
+				}
+
+				a {
+
+					display: block;
+					height: 26px;
+					padding-top: 11px;
+					color: $secondary-color;
+					background: rgba($secondary-color, .10);
+
+					&:hover {}
+					
+				}
+
+					span {
+
+						float: left;
+
+						&.arrow {
+
+							position: relative;
+							display: inline-block;
+							top: -11px;
+							width: 37px;
+							height: 37px;
+							margin-right: 16px;
+							background: $primary-color url(-/media/previous.png);
+							@include hide-text();
+	
+							@include retina() {
+								background-image: url(-/media/previous@2x.png);
+								background-size: 37px 37px;
+								}
+
+						}
+
+					}
+
+		}
+		
+	}
+
+	// Section Header
+
+	.section-header {
+
+		height: 45px;
+		padding: 15px 0 0 0;
+		@include font-size(18);
+		line-height: (32/18) + em;
+		font-weight: 400;
+		color: $primary-color;
+		border-top: 1px solid $secondary-color;
+		border-bottom: 1px solid $secondary-color;
+
+		.page-template-template-about-php .main &,
+		.page-template-template-services-php .primary & { margin-bottom: 20px; }
+
+		.single-projects & {
+
+			@include breakpoint(max-width, 719px) {
+				position: relative;
+				height: auto;
+				padding: 0;
+				border: none;
+				}
+
+			h3 {
+
+				font-weight: 400;
+
+				@include breakpoint(max-width, 719px) {
+
+					position: relative;
+					margin-bottom: 30px;
+					// height: 45px;
+					padding: 18px 91px 18px 0;
+					line-height: 24px;
+					border-top: 1px solid $secondary-color;
+					border-bottom: 1px solid $secondary-color;
+
+				}
+
+				@include breakpoint(min-width, 720px) { @include span-columns(8,12); }
+
+			}
+			
+			h4 {
+
+				@include font-size(14);
+				line-height: (18/14) + em;
+				font-weight: 400;
+				text-transform: uppercase;
+				@include group();
+
+				@include breakpoint(max-width, 719px) { margin-bottom: 10px; }
+
+				@include breakpoint(min-width, 720px) {
+					position: relative;
+					top: -15px;
+					height: 60px;
+					@include span-columns(4 omega,12);
+					}
+
+				.icon {
+
+					width: 75px;
+					height: 60px;
+
+					@include breakpoint(max-width, 719px) {
+						position: absolute;
+						right: 0;
+						top: 1px;
+						width: 75px;
+						bottom: 1px;
+						border-left: 1px solid $secondary-color;
+						}
+
+					@include breakpoint(min-width, 720px) {
+						float: left;
+						margin-left: 1px;
+						border-right: 1px solid $secondary-color;
+						}
+
+				}
+
+				img {
+				
+					width: 75px;
+					height: 60px;
+					
+				}
+
+				.city {
+
+					@include breakpoint(min-width, 720px) {
+						display: inline-block;
+						height: 37px;
+						padding-top: 23px;
+						padding-left: 15px;
+						}
+
+				}
+
+				.state {
+				
+					@include breakpoint(min-width, 720px) {
+						display: inline-block;
+						height: 37px;
+						padding-top: 23px;
+						}
+			
+				}
+			
+			}
+		
+		}
+
+	}
+
+	/* Featured Project */
+
+	.featured-project {
+
+		a {
+			position: relative;
+			display: inline-block;
+			z-index: 1;
+
+			.ie8 & {
+			
+				&:hover {
+				
+					div { background: $primary-color !important; }
+					
+				}
+
+			}
+
+			.ie8 &,
+			.ie9 & {
+			
+				p { display: none !important; }
+
+				&:hover {
+					
+					p { display: block !important; }
+					
+				}
+				
+			}
+
+		}
+
+			img { display: block; }
+
+			div {
+
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 36px;
+				@include font-size(11);
+				line-height: (16/11) + em;
+				text-transform: uppercase;
+				text-align: center;
+				color: $white;
+				background: rgba($primary-color, 0.85);
+				overflow: hidden;
+				z-index: 5;
+
+				.no-touch & {
+
+					top: 0;
+					height: 100%;
+					background: rgba($primary-color, 0);
+					@include transition(background .45s);
+
+				}
+
+				&:hover {
+
+					.no-touch & { background: rgba($primary-color, 0.85); }
+
+				}
+
+				.ie9 & {
+
+					&:hover { background: rgba($primary-color, 0.85); }
+					
+				}
+
+				p {
+					
+					display: table;
+					width: 100%;
+					height: 100%;
+
+					.ie8 &,
+					.ie9 & {
+						position: relative;
+						display: block;
+						}
+
+					strong {
+
+						display: table-cell;
+						vertical-align: middle;
+						font-weight: 600;
+
+						.ie8 &,
+						.ie9 & {
+							position: absolute;
+							display: block;
+							vertical-align: baseline;
+							top: 48% !important;
+							z-index: 5;
+							}
+
+						.no-touch & {
+						
+							position: relative;
+							top: 90%;
+							opacity: 0;
+							@include transition(top .25s ease-in-out, opacity .35s);
+					
+						}
+
+						.ie8 &,
+						.ie9 & { opacity: 1; }
+
+						&:hover {
+						
+							.no-touch & {
+								top: 0;
+								opacity: 1;
+								}
+
+						}
+
+					}
+
+						span {
+
+							position: relative;
+							top: 1px;
+							display: inline-block;
+							margin-left: 25px;
+							width: 14px;
+							height: 12px;
+							@include hide-text();
+							background: url(-/media/arrow.png);
+
+							@include retina() {
+								background-image: url(-/media/arrow@2x.png);
+								@include background-size(14px 12px);
+								}
+							
+						}
+
+				}
+				
+			}
+
+	}
+
+	// Capabilities
+
+	.capabilities {
+
+		padding: 0 30px;
+
+		.row {
+
+			div {
+
+				padding: 30px 0;
+				
+				@include breakpoint(max-width, 599px ) {
+
+					border-top: 1px dashed $secondary-color;
+
+					&:first-of-type { border-top: 1px solid $secondary-color; }
+					
+					&:last-of-type { padding-bottom: 0; }
+					
+				}
+
+				@include breakpoint(min-width, 600px) {
+
+					padding: 0;
+					@include span-columns(4, 12);
+					@include nth-omega(3n);
+
+					.ie8 & {
+					
+						&:nth-child(3n) { @include omega; }
+						
+					}
+
+				}
+
+				.ie8 & {
+				
+					&:nth-child(3n) { @include omega; }
+				
+				}
+
+			}
+
+				h4 {
+					margin-bottom: 6px;
+					@include font-size(14);
+					line-height: (18/14) + em;
+					font-weight: 600;
+					text-transform: uppercase;
+					color: $primary-color;
+					}
+
+				p {
+
+					&:last-child { margin-top: 12px; }
+
+				}
+
+					a {
+						display: inline-block;
+						height: 22px;
+						padding: 6px 12px 0 12px;
+						@include font-size(12);
+						line-height: (16/12) + em;
+						text-transform: uppercase;
+						color: $white;
+						background: $primary-color;
+						@include transition(background .35s);
+					
+						.no-touch & {
+					
+							&:hover { background: rgba($primary-color, .75); }
+
+						}
+
+					}
+
+		}
+
+	}
+
+	// Processes & Technologies
+
+	.processes,
+	.technologies {
+
+		margin-top: 30px;
+
+		@include breakpoint(min-width, 480px) {
+		
+			background:
+				url(-/media/vertical-rule.png) center top repeat-y,
+				url(-/media/horizontal-rule.png) left 33.33333% repeat-x,
+				url(-/media/horizontal-rule.png) left 66.66666% repeat-x;
+		
+		}
+
+		@include breakpoint(min-width, 800px) {
+		
+			background:
+				url(-/media/horizontal-rule.png) left center repeat-x,
+				url(-/media/vertical-rule.png) 32.03125% top repeat-y,
+				url(-/media/vertical-rule.png) 67.96250% top repeat-y;
+		
+		}
+
+		div {
+
+			padding: 30px 0 30px 0;
+			text-align: center;
+			vertical-align: top;
+
+			@include breakpoint(min-width, 480px) {
+
+				@include span-columns(6,12);
+				@include box-sizing();
+				float: none;
+				display: inline-block;
+			
+				&:nth-child(2n) {
+					@include omega();
+					float: none;
+					display: inline-block;
+					}
+	
+				&:nth-child(odd) { padding-right: 10px; }
+				
+				&:nth-child(even) { padding-left: 10px; }
+
+			}
+
+			@include breakpoint(min-width, 800px) {
+
+				padding: 36px 0 65px 0;
+				@include span-columns(4,12);
+				float: none;
+				display: inline-block;
+
+				&:nth-child(2n) { @include remove-omega(); }
+
+				&:nth-child(3n) {
+					@include omega();
+					float: none;
+					display: inline-block;
+					}
+
+				&:nth-child(odd) { padding-right: 0; }
+				
+				&:nth-child(even) { padding-left: 0; }
+
+				&:nth-child(3n + 1) { padding-right: 20px; }
+
+				&:nth-child(3n + 3) { padding-left: 20px; }
+
+			}
+
+		}
+
+			img {
+
+				margin-bottom: 36px;
+				@include rounded(50%);
+				background: lighten($secondary-color, 24%); // Secondary color at 25%.
+
+				@include breakpoint(max-width, 480px) { margin-bottom: 18px; }
+
+			}
+
+			h4 {
+				margin-bottom: 4px;
+				@include font-size(18);
+				line-height: (22/18) + em;
+				text-align: left;
+				font-weight: 600;
+				color: $primary-color;
+				}
+
+			h5 {
+				@include font-size(11);
+				line-height: (18/11) + em;
+				text-align: left;
+				}
+
+			p {
+				text-align: left;
+				@include font-size(15);
+				line-height: (22/15) + em;
+				}
+
+	}
+
+	// Filter
+
+	.filter {
+
+		@include breakpoint(min-width, 600px) {
+
+			padding: 18px 0;
+			border-top: 1px solid $secondary-color;
+			border-bottom: 1px solid $secondary-color;
+			@include group();
+
+		}
+
+		h2 {
+
+			padding-top: 3px;
+			@include font-size(18);
+			line-height: (32/18) + em;
+			font-weight: 400;
+			color: $primary-color;
+
+			@include breakpoint(min-width, 600px) { @include span-columns(2,12); }
+
+		}
+
+	}
+
+		.dropdown {
+
+			@include breakpoint(max-width, 599px) { margin-top: 20px; }
+
+			@include breakpoint(min-width, 600px) {
+
+				@include span-columns(5,12);
+			
+				&:last-of-type { @include omega(); }
+
+			}
+
+			div {
+
+				position: relative;
+				background: lighten($secondary-color, 29%);
+				outline: none;
+				cursor: pointer;
+				z-index: 100;
+
+				&.active {
+
+					z-index: 9999;
+
+					&:after {
+					
+						background-position: -37px 0;
+					
+						@include retina() { background-position: -37px -19px; }
+						
+					}
+
+					.option-set {
+						opacity: 1;
+						left: 0;
+						display: block;
+						pointer-events: auto;
+						z-index: 9999;
+						}
+
+				}
+
+				&:after {
+
+					content: "";
+					position: absolute;
+					width: 37px;
+					height: 37px;
+					right: 0;
+					top: 0;
+					background: $primary-color url(-/media/open-close.png);
+
+					@include retina() {
+						background-size: 74px 56px;
+						background-position: 1px -19px;
+						}
+    
+				}
+
+			}
+
+				span {
+					display: block;
+					height: 29px;
+					padding: 8px 0 0 10px;
+					@include font-size(14);
+					}
+
+				ul {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					display: none;
+					opacity: 0;
+					background: lighten($secondary-color, 29%);
+					z-index: 9999;
+					}
+
+					li {
+						@include font-size(14);
+						border-top: 1px solid lighten($secondary-color, 16%);
+						}
+
+						a {
+
+							display: block;
+							height: 29px;
+							padding: 8px 0 0 10px;
+							color: $secondary-color;
+
+							&:hover { background: lighten($secondary-color, 25%); }
+						
+							&.selected { color: $primary-color; }
+							
+						}
+
+		}
+
+	// Projects
+
+	.projects-wrapper {
+	
+		overflow: hidden;
+
+		.no-results-to-display { display: none; }
+
+		&.no-results {
+
+			.no-results-to-display {
+			
+				display: block;
+				padding: 50px 0;
+
+				p {
+					text-align: center;
+					}
+				
+			}
+			
+		}
+		
+	}
+
+	.projects {
+
+		width: 100%;
+		margin-top: 30px;
+
+		@include breakpoint(min-width, 500px) { width: 101.95313%; }
+
+		> div {
+
+			margin-bottom: 25px;
+
+			@include breakpoint(min-width, 500px) {
+			
+				@include span-columns(6,12);
+				max-width: 48.1%;
+				
+			}
+
+			@include breakpoint(min-width, 800px) {
+
+				@include span-columns(4,12);
+				max-width: 31.35125%;
+
+			}
+
+		}
+
+			a {
+
+				display: inline-block;
+
+				div {
+					position: relative;
+					margin-bottom: 20px;
+					z-index: 1;
+					}
+
+			}
+
+				img { display: block; }
+
+				h4 {
+					margin-bottom: 4px;
+					@include font-size(16);
+					line-height: (18/16) + em;
+					font-weight: 400;
+					color: $primary-color;
+					}
+
+				h5 {
+					@include font-size(13);
+					line-height: (15/13) + em;
+					font-weight: 600;
+					text-transform: uppercase;
+					color: $secondary-color;
+					}
+
+				p {
+
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+					height: 36px;
+					@include font-size(14);
+					line-height: (22/14) + em;
+					text-transform: uppercase;
+					text-align: center;
+					color: $white;
+					background: rgba($primary-color, 0.85);
+					z-index: 5;
+
+					.no-touch & {
+						top: 0;
+						height: 100%;
+						background: rgba($primary-color, 0);
+						@include transition(background .45s);
+						}
+
+					strong {
+						display: block;
+						margin-top: 8px;
+						font-weight: 600;
+
+						.no-touch & {
+							position: relative;
+							top: 75%;
+							margin-top: -10px;
+							opacity: 0;
+							@include transition(top .25s, opacity .25s);
+							}
+
+					}
+
+						span {
+							display: inline-block;
+							margin-left: 25px;
+							width: 14px;
+							height: 12px;
+							@include hide-text();
+							background: url(-/media/arrow.png);
+							}
+
+					&:hover {
+
+						background: rgba($primary-color, 0.85);
+
+						strong {
+							top: 50%;
+							opacity: 1;
+							}
+
+					}
+
+				}
+
+	}
+
+	// Isotope Animation
+
+	.isotope-item { z-index: 2; }
+
+	.isotope-hidden.isotope-item {
+		pointer-events: none;
+		z-index: 1;
+		}
+
+	/* Transitions */
+
+	.isotope,
+	.isotope .isotope-item {
+		-webkit-transition-duration: 0.8s;
+		-moz-transition-duration: 0.8s;
+		-ms-transition-duration: 0.8s;
+		-o-transition-duration: 0.8s;
+		transition-duration: 0.8s;
+		}
+	
+	.isotope {
+		-webkit-transition-property: height, width;
+		-moz-transition-property: height, width;
+		-ms-transition-property: height, width;
+		-o-transition-property: height, width;
+		transition-property: height, width;
+		}
+
+	.isotope .isotope-item {
+		-webkit-transition-property: -webkit-transform, opacity;
+		-moz-transition-property: -moz-transform, opacity;
+		-ms-transition-property: -ms-transform, opacity;
+		-o-transition-property: -o-transform, opacity;
+		transition-property: transform, opacity;
+		}
+
+	.office {
+
+		@include breakpoint(max-width, 599px) {
+
+			&:first-of-type { margin-bottom: 30px; }
+
+		}
+
+		@include breakpoint(min-width, 600px) {
+
+			@include span-columns(6,12);
+			@include nth-omega(last);
+
+		}
+
+		img { margin-bottom: 17px; }
+
+		h3 {
+			margin-bottom: 0;
+			@include font-size(18);
+			line-height: (32/18) + em;
+			font-weight: 400;
+			}
+
+		p {
+
+			margin-bottom: 10px;
+
+			&.more {
+			
+				margin-bottom: 20px;
+
+				a {
+	
+					display: inline-block;
+					height: 22px;
+					margin-top: 15px;
+					padding: 6px 12px 0 12px;
+					@include font-size(12);
+					line-height: (16/12) + em;
+					text-transform: uppercase;
+					color: $white;
+					background: $primary-color;
+					@include transition(background .35s);
+	
+					.no-touch & {
+	
+						&:hover { background: rgba($primary-color, .75); }
+					
+					}
+					
+				}
+
+			}
+
+		}
+
+	}
+
+	// Team
+
+	.team {
+
+		header {
+
+			margin-bottom: 36px;
+			border-top: 1px solid $secondary-color;
+			border-bottom: 1px solid $secondary-color;
+			@include group();
+
+			h2 {
+				display: inline-block;
+				height: 45px;
+				padding: 15px 0 0 0;
+				@include font-size(18);
+				line-height: (32/18) + em;
+				font-weight: 400;
+				color: $primary-color;
+				}
+			
+			p {
+				float: right;
+				margin: 17px 0 0 0;
+				@include font-size(11);
+				line-height: (13/11) + em;
+				text-transform: uppercase;
+				}
+
+				a {
+
+					display: block;
+					height: 19px;
+					padding: 7px 0 0 0;
+					color: $secondary-color;
+					@include group();
+
+					span {
+
+						float: left;
+
+						&.arrow {
+
+							position: relative;
+							top: -7px;
+							width: 26px;
+							height: 26px;
+							margin-right: 10px;
+							display: block;
+							color: $white;
+							background: $primary-color url(-/media/back.png);
+							@include hide-text();
+
+							@include breakpoint(max-width, 479px) { margin: 0; }
+
+							@include retina() {
+							
+								background-size: 26px 39px;
+								background-position: 0 -13px;
+	
+							}
+
+						}
+
+						&:last-child {
+							
+							@include breakpoint(max-width, 479px) {
+							
+								display: none;
+								
+								}
+							
+						}
+
+					}
+
+					&:hover {}
+					
+				}
+
+		}
+
+	}
+	
+	.individuals {
+
+		ul {}
+		
+			li {
+
+				@include span-columns(1,2);
+				margin-bottom: 30px;
+				
+				&:nth-child(2n) { @include omega(); }
+
+				@include breakpoint(min-width, 480px) {
+					
+					@include span-columns(1,3);
+					
+					&:nth-child(2n) {
+					
+						@include remove-omega();
+						@include span-columns(1,3);
+						
+					}
+					
+					&:nth-child(3n) { @include omega(); }
+					
+				}
+
+				@include breakpoint(min-width, 600px) {
+
+					@include span-columns(1,4);
+					
+					&:nth-child(2n),
+					&:nth-child(3n) {
+					
+						@include remove-omega();
+						@include span-columns(1,4);
+						
+					}
+					
+					&:nth-child(4n) { @include omega(); }
+
+				}
+
+				@include breakpoint(min-width, 800px) {
+				
+					@include span-columns(2,12);
+					
+					&:nth-child(2n),
+					&:nth-child(3n),
+					&:nth-child(4n) {
+					
+						@include remove-omega();
+						@include span-columns(2,12);
+						
+					}
+					
+					&:nth-child(6n) { @include omega(); }
+				
+				}
+
+			}
+
+				a {
+
+					position: relative;
+					display: block;
+					@include rounded(50%);
+					background: rgba($secondary-color, .10);
+					border: 5px solid rgba($secondary-color, .10);
+					z-index: 1;
+
+					img {
+						display: block;
+						@include rounded(50%);
+						}
+	
+					div {
+
+						display: none;
+						position: absolute;
+						top: -5px;
+						left: -5px;
+						width: 100%;
+						height: 100%;
+						padding: 5px;
+						@include rounded(50%);
+						background: rgba($primary-color, 0);
+						@include transition(background .45s);
+
+						p {
+							display: table;
+							width: 100%;
+							height: 100%;
+							}
+					
+						strong {
+							display: table-cell;
+							padding: 10px;
+							vertical-align: middle;
+							color: $white;
+							@include font-size(24);
+							line-height: (27/24) + em;
+							font-weight: normal;
+							text-align: center;
+							font-family: "Jenna Sue", sans-serif;
+							opacity: 0;
+							@include transition(top .25s, opacity .25s);
+							z-index: 1;
+							}
+						
+					}
+
+					&:hover {
+					
+						div {
+
+							display: block;
+							background: rgba($primary-color, .85);
+
+							p {}
+						
+							strong {
+								top: 43%;
+								opacity: 1;
+								}
+							
+						}
+							
+					}
+
+				}
+	
+	}
+
+	@include mozilla {
+	
+	
+	
+	}
+
+	// Client List
+
+	.client-list {
+	
+		margin-top: 30px;
+	
+		ul {}
+
+			li {
+
+				margin-bottom: 30px;
+
+				// 3 columns
+
+				@include breakpoint(max-width, 599px) {
+
+					@include span-columns(1,3);
+					@include nth-omega(3n);
+
+				}
+
+				// 5 columns
+				
+				@include breakpoint(min-width, 600px) {
+				
+					@include span-columns(1,5);
+					@include nth-omega(5n);
+				
+				}
+
+				// 7 columns
+
+				@include breakpoint(min-width, 800px) {	
+
+					@include span-columns(1,7);
+					@include nth-omega(7n);
+
+					&:nth-child(5n) {
+						@include remove-omega();
+						@include span-columns(1,7);
+						}
+
+				}
+
+			}
+
+				div {
+					position: relative;
+					display: block;
+					background: lighten($secondary-color, 29%);
+					z-index: 1;
+					}
+
+					img { display: block; }
+
+					// Clients without a link to projects
+
+					p { display: none; }
+
+					// Clients with a link to projects
+
+					a {
+
+						display: block;
+						@include box-shadow(0 5px 0 $primary-color);
+					
+						p {
+							position: absolute;
+							display: block;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							@include hide-text();
+							background: rgba($primary-color, 0);
+							@include transition(background .45s);
+							z-index: 5;
+
+							span {
+								position: absolute;
+								top: 75%;
+								left: 50%;
+								margin: -15px 0 0 -15px;
+								display: block;
+								width: 30px;
+								height: 30px;
+								opacity: 0;
+								@include transition(top .25s, opacity .25s);
+								background: $white url(-/media/arrow-orange.png);
+								}
+
+							&:hover {
+							
+								background: rgba($primary-color, 0.85);
+							
+								span {
+									top: 50%;
+									opacity: 1;
+									}
+								
+							}
+
+						}
+
+					}
+
+	}
+
+	// Individual Project
+
+	.page-template-single-projects-php {
+	
+		.content {
+		
+			header {
+			
+				h2 { @include span-columns(8,12); }
+				
+				p { @include span-columns(4 omega,12); }
+				
+			}
+			
+		}
+	
+	}
+
+	// Forms
+	
+	.gform_wrapper {
+	
+		form {}
+		
+			.gform_body {
+			
+				.gform_fields {
+					padding: 18px 0 0 0;
+					list-style-type: none;
+					}
+				
+					.gfield {
+
+						position: relative;
+						margin-bottom: 20px;
+						padding-bottom: 26px;
+						z-index: 1;
+
+						@include breakpoint(min-width, 860px) {
+
+							margin-bottom: 40px;
+						
+							@include span-columns(4,8);
+
+							&#field_1_6,
+							&#field_1_3 { @include omega(); }
+
+							&#field_1_4 {
+								@include span-columns(8,8);
+								margin-bottom: 0;
+								}
+
+						}
+
+						&#field_1_3 { z-index: 9999; }
+
+						&#field_1_4 {
+						
+							.gfield_label { bottom: 6px; }
+							
+						}
+
+					}
+					
+						.gfield_label {
+
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							@include font-size(13);
+							line-height: (21/13) + em;
+							color: $primary-color;
+
+							@include breakpoint(min-width, 860px) { left: 10px; }
+
+						}
+
+						.ginput_container {
+							
+							span {}
+							
+								input {
+									@include box-sizing();
+									width: 100%;
+									height: 37px;
+									padding: 0 10px;
+									outline: none;
+									-webkit-appearance: none;
+									@include rounded(0);
+									border: 1px solid lighten($secondary-color, 16%); // Secondary color at 50%.
+									}
+								
+								textarea {
+									@include box-sizing();
+									width: 100%;
+									max-width: 100%;
+									height: 80px;
+									padding: 10px;
+									outline: none;
+									-webkit-appearance: none;
+									@include rounded(0);
+									border: 1px solid lighten($secondary-color, 16%); // Secondary color at 50%.
+									}
+								
+								select {}
+
+								/* Base */
+
+								.chzn-container {
+
+									position: relative;
+									display: inline-block;
+									width: 100% !important; // Override inline width being set.
+									zoom: 1;
+									*display: inline;
+
+									&.chzn-container-active {
+										
+										.chzn-single {
+											
+											b { background-position: -37px 0; }
+											
+										}
+
+										.chzn-drop { display: block; }
+
+									}
+
+								}
+
+									.chzn-single {
+							
+										@include box-sizing();
+										position: relative;
+										display: block;
+										height: 37px;
+										padding: 7px 0 0 8px;
+										color: $secondary-color;
+										white-space: nowrap;
+										text-decoration: none;
+										border: 1px solid lighten($secondary-color, 16%); // Secondary color at 50%.
+										outline: none;
+										overflow: hidden;
+										
+										span {
+											display: block;
+											margin-right: 26px;
+											overflow: hidden;
+											white-space: nowrap;
+											-o-text-overflow: ellipsis;
+											-ms-text-overflow: ellipsis;
+											text-overflow: ellipsis;
+											}
+										
+										div {
+											position: absolute;
+											top: 0;
+											right: 0;
+											display: block;
+											width: 37px;
+											height: 100%;
+											}
+										
+											b {
+												display: block;
+												width: 100%;
+												height: 100%;
+												background: lighten($secondary-color, 24%) url(-/media/open-close.png);
+												}
+										
+									}
+
+									.chzn-drop {
+										position: absolute;
+										display: none;
+										left: 0;
+										top: 29px;
+										width: 100% !important; // Override inline style.
+										background: $white;
+										@include box-shadow(0 3px 2px rgba($black, .15));
+										z-index: 1010;
+										}
+
+										.chzn-search {
+
+											display: none;
+
+											input {}
+											
+										}
+										
+										.chzn-results {
+
+											position: relative;
+											max-height: 240px;
+											margin: 0;
+											padding: 0;
+											overflow: hidden;
+											border: 1px solid lighten($secondary-color, 16%);
+											border-top: 0;
+											z-index: 9999;
+											
+											li {
+
+												display: none;
+												height: 27px;
+												border-top: 1px solid lighten($secondary-color, 16%);
+												margin: 0;
+												padding: 10px 8px 0 8px;
+												line-height: 15px;
+												list-style: none;
+
+												&.active-result {
+													display: list-item;
+													cursor: pointer;
+													}
+
+												&.highlighted {
+													color: $white;
+													background: $primary-color;
+													}
+
+												&.result-selected { display: none !important; }
+												
+											}
+											
+										}
+						
+						}
+			
+			}
+			
+			.gform_footer {
+				
+				clear: both;
+				@include group();
+				
+				.button {
+					float: right;
+					display: inline-block;
+					height: 30px;
+					padding: 2px 12px 0 12px;
+					@include font-size(13);
+					line-height: (16/13) + em;
+					text-transform: uppercase;
+					color: $white;
+					background: $primary-color;
+					-webkit-appearance: none;
+					@include rounded(0);
+					border: none;
+					@include transition(background .35s);
+
+					&:hover { background: lighten($primary-color, 5%); }
+					
+				}
+
+			}
+	
+	}
+
+				@include mozilla {
+				
+					.gform_wrapper .gform_footer .button { padding-top: 0; }
+					
+				}
+
+
+/*-------------------------------------------
+	Footer
+-------------------------------------------*/
+
+
+#footer {
+
+	background: lighten($secondary-color, 29%);
+
+	@include breakpoint(min-width, 870px) {
+		clear: both;
+		position: relative;
+		height: 50px;
+		}
+
+	.row {
+
+		position: relative;
+		z-index: 1;
+
+		@include breakpoint(max-width, 870px) {
+			padding: 30px 0;
+			}
+
+		@include breakpoint(min-width, 870px) { height: 50px; }
+
+	}
+
+}
+
+	.contact {
+
+		@include group();
+
+		@include breakpoint(min-width, 870px) {
+		
+			position: absolute;
+			right: 0;
+			top: 16px;
+			z-index: 5;
+
+		}
+
+	}
+
+	.social {
+
+		@include group();
+
+		@include breakpoint(max-width, 870px) {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			z-index: 5;
+			}
+
+		@include breakpoint(min-width, 870px) { float: left; }
+
+		li {
+
+			float: left;
+			margin-left: 10px;
+			@include hide-text();
+
+			a {
+
+				display: block;
+				width: 20px;
+				height: 20px;
+				background: $secondary-color url(-/media/social-icons.png);
+
+				@include retina() {
+				
+					@include background-size(80px 30px);
+					background-position: 0 -40px;
+					
+				}
+
+				&:hover { background-color: $primary-color; }
+
+			}
+
+			&.facebook {
+
+				a {
+				
+					background-position: -20px 0;
+				
+					@include retina() { background-position: -20px -40px; }	
+					
+				}
+
+			}
+
+			&.linkedin {
+
+				a {
+				
+					background-position: -40px 0;
+					
+					@include retina() { background-position: -40px -40px; }	
+	
+				}
+
+			}
+
+		}
+
+	}
+
+	.offices {
+
+		float: left;
+		@include group();
+
+		@include breakpoint(min-width, 870px) {
+
+			height: 12px;
+			padding: 4px 0 4px 30px;
+			background: url(-/media/phone.png) 10px center no-repeat;
+
+			@include retina() {
+				background-image: url(-/media/phone.png);
+				@include background-size(20px 20px);
+				}
+
+			div {
+				float: left;
+				height: 12px;
+				padding: 0 10px 0 10px;
+				border-left: 1px solid $secondary-color;
+				}
+
+				h4 {
+					float: right;
+					margin: 0 0 0 6px;
+					font-weight: 400;
+					text-transform: uppercase;
+					}
+	
+				p { float: right; }
+
+		}
+
+		div {
+			@include font-size(10);
+			line-height: (15/10) + em;
+			@include group();
+			}
+
+			h4 {
+				float: left;
+				margin: 0 6px 0 0;
+				font-weight: 400;
+				text-transform: uppercase;
+				}
+
+			p { float: left; }
+
+	}
+
+	#copyright {
+
+		@include font-size(10);
+		line-height: (15/10) + em;
+
+		@include breakpoint(min-width, 870px) {
+			position: absolute;
+			left: 0;
+			top: 20px;
+			z-index: 5;
+			}
+	}
+
+
+// Case Study Popover
+
+
+#basic-modal-content { display: none; }
+
+/* Overlay */
+
+#simplemodal-overlay {
+	background-color: $black;
+	z-index: 99999;
+	}
+
+/* Container */
+
+#simplemodal-container {
+
+	height: 320px;
+	width: 320px;
+	padding: 40px;
+	background: $white;
+	z-index: 9999999;
+
+	@include breakpoint(max-width, 400px) {
+	
+		width: 240px !important;
+		left: 50% !important;
+		margin-left: -160px !important;
+		
+	}
+
+	.simplemodal-close {
+
+		position: absolute;
+		display: block;
+		right: 38px;
+		top: 35px;
+		width: 30px;
+		height: 30px;
+		background: url(-/media/close.png);
+		cursor: pointer;
+		z-index: 5;
+
+		@include retina {
+			background-size: 30px 30px;
+			background-image: url(-/media/close@2x.png);
+			}
+
+		&:hover {}
+		
+	}
+
+	.simplemodal-wrap {}
+
+		.simplemodal-data {}
+
+			.gform_wrapper {}
+
+				form {}
+
+					.gform_heading { margin-bottom: 15px; }
+
+						.gform_title {
+							@include font-size(18);
+							line-height: (18/18) + em;
+							color: $primary-color;
+							font-weight: 600;
+							}
+
+					.gform_body {
+						
+						.gform_fields {}
+
+							.gfield {
+								float: none;
+								display: block;
+								width: 100%;
+								margin: 0 0 15px 0;
+								}
+
+								label {
+
+									font-weight: 400;
+
+									.gfield_required {}
+									
+								}
+								
+								.ginput_container {}
+
+									input {}
+
+					}
+
+					.gform_footer {
+						
+						.button {
+							float: none;
+							display: block;
+							}
+						
+					}
+
+}

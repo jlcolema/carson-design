@@ -1,0 +1,69 @@
+/*   
+Theme Name: Carson Design
+Theme URI: http://carsondesign.com
+Description: A fancy theme.
+Author: Tune Development
+Author URI: http://tunedevelopment.com
+Version: 1.0
+*/
+
+
+// ------------------------------
+// Base
+// ------------------------------
+
+
+// Reset
+
+@import "reset";
+
+// Grid
+
+@import "susy";
+
+// Variables and Mixins
+
+@import "variables";
+@import "mixins";
+
+// Sitewide Styles
+
+@import "site";
+
+
+// ------------------------------
+// Print
+// ------------------------------
+
+
+@media print { @import "print"; }
+
+
+// ------------------------------
+// Media Queries
+// ------------------------------
+
+
+// Small
+
+@media only screen and (min-width: 480px) { @import "breakpoints/sm"; }
+
+// Medium
+
+@media only screen and (min-width: 600px) { @import "breakpoints/md"; }
+
+// Large
+
+@media only screen and (min-width: 768px) { @import "breakpoints/lg"; }
+
+// Extra-Large
+
+@media only screen and (min-width: 992px) { @import "breakpoints/xl"; }
+
+
+// ------------------------------
+// 2x
+// ------------------------------
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { @import "2x"; }

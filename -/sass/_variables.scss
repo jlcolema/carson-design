@@ -1,0 +1,37 @@
+// Grid
+
+$total-columns  : 12;	// a 12-column grid
+$column-width   : 67px;	// each column is 67px wide
+$gutter-width   : 20px;	// 20px gutters between columns
+$grid-padding   : 30px;	// 30px padding on sides of grid
+
+// Breakpoints
+// $small	: 480px;
+// $medium	: 600px;
+// $large	: 768px;
+// $xlarge	: 992px;
+
+// Typography
+
+$basefont: proxima-nova-n4, proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$basefontsize : 13;
+$baselineheight : 1.466667em;
+$basefontweight: 300;
+// $baseheadingfont : inherit;
+// $baseheadingfontweight : bold;
+// $baseheadingfontcolor : inherit;
+
+$altfont : Satisfy, Georgia, Times, "Times New Roman"; // Note: font-weight is 400.
+// $altlineheight : 1.35em;
+
+// $codefont : Monaco, Courier New, monospace;
+
+// Grayscale
+
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+
+// Colors
+
+$primary-color: rgb(243, 109, 35);
+$secondary-color: rgb(173, 173, 173);
